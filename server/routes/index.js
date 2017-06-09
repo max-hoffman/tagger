@@ -2,12 +2,12 @@ const path = require('path');
 const router = require('express').Router();
 const notes = require('../controllers/notes');
 
-//entry point
+// entry point
 router.get('/', function(req, res) {
   res.render('index');
 });
 
-//note logic
+// note endpoints
 router.get('/notes:id', notes.getOneNoteCtrl);
 
 router.post('/notes', notes.postNoteCtrl);

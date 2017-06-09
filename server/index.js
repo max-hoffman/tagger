@@ -4,29 +4,22 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const models = require('./models/');
 
-// this will force the db/index.js module to run, establishing a database connection.
-// you may or may not need to use the database connection in this index.js file.
-// if you need to use it, assign the return value of require('./db') to a variable.
-// require('./db');
+// establish sqlite connection
 models.sequelize
 .authenticate()
-.then(function () {
+.then(() => {
   console.log('Connection successful');
 })
-.catch(function(error) {
+.catch(error => {
   console.log("Error creating connection:", error);
 });
 
 // create an express instance 
 const app = express();
 
-// hook any middleware you need to into the express instance, including your route handlers
-// hint: use the bodyParser middleware to parse the request body for POST & PUT requests.
+// middleware
 app.use(bodyParser.json());
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
-
-// serve the `../public/` folder using the express.static() middleware function
-// (you will want to use the path library to correctly resolve the path to ../public.)
 app.use(express.static(path.join(__dirname, '../public')));
 app.use('/', require('./routes'));
 
