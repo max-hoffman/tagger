@@ -2,14 +2,8 @@
   <form> 
     <fieldset> 
       <legend>Note</legend>
-      <label>
-          <b>Title</b>
-          <input type="title" name="title" value="{{ctrl.title}}">
-      </label>
-      <label>
-          <b>Text</b>
-          <textarea cols="30" rows="5" >{{ctrl.text}}</textarea>
-      </label> 
+      <label><b>Title:</b><input type="text" ng-model="ctrl.title" /></label><br/>
+      <label><b>Text:</b><textarea cols="30" rows="5" type="email" ng-model="ctrl.text" /></label><br/>
     </fieldset> 
   </form>
 </div>

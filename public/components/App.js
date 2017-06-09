@@ -1,25 +1,26 @@
 angular.module('tagger')
 
-.controller('AppCtrl', [ 'all', 'editor', function(all, editor) {
+.controller('AppCtrl', [ 'notesService', 'editorService', function(notesService, editorService) {
   // all notes methods
-  this.getAllNotes = all.get;
-  this.fetch = all.fetch;
+  this.getAllNotes = notesService.get;
+  this.fetch = notesService.fetch;
   //editor methods
-  this.getCurrentNote = editor.get;
-  this.set = editor.set; 
-  this.new = editor.new; 
-  this.create = editor.create;
-  this.update = editor.update;
-  this.delete = editor.delete;
+  this.getCurrentNote = editorService.get;
+  this.set = editorService.set; 
+  this.new = editorService.new; 
+  this.create = editorService.create;
+  this.update = editorService.update;
+  this.delete = editorService.delete;
 }])
 
-.directive('App', [function() {
+.directive('app', function() {
   return {
     controller: 'AppCtrl as ctrl',
     bindToController: true,
+    templateUrl: './templates/app.html',
     scope: {
 
     },
     restrict: 'E'
   };
-}]);
+});

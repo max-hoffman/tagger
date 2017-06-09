@@ -8,6 +8,7 @@
     "drop-db": "rm server/db/tagger.sqlite"
   },
   "dependencies": {
+    "angular": "^1.6.4",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",

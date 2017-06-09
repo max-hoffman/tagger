@@ -4,10 +4,11 @@ angular.module('tagger')
 
 }])
 
-.directive('Note', [function() {
+.directive('note', [function() {
   return {
     controller: 'NoteCtrl as ctrl',
     bindToController: true,
+    templateUrl: '../templates/note.html',
     scope: {
       
     },

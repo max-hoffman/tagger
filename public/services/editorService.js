@@ -1,6 +1,6 @@
 angular.module('tagger')
 
-.service('editor', [function() {
+.service('editorService', [function() {
   var blank = 
   {
     'id' : '',

@@ -1,6 +1,6 @@
 angular.module('tagger')
 
-.service('allNotes', [function() {
+.service('notesService', [function() {
   var notes=[];
   return {
     get: () => notes,

@@ -4,10 +4,11 @@ angular.module('tagger')
 
 }])
 
-.directive('Editor', [function() {
+.directive('editor', [function() {
   return {
     controller: 'EditorCtrl as ctrl',
     bindToController: true,
+    templateUrl: '../templates/editor.html',
     scope: {
       
     },
