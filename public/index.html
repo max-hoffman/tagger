@@ -5,28 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Tagger</title>
+  <!--cdns-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+  <!--entry point-->
+  <script src="index.js"></script>
+  <!--templates-->
+  <script src="templates/app.html"></script>
+  <script src="templates/editor.html"></script>
+  <script src="templates/note.html"></script>
+  <script src="templates/noteList.html"></script>
+  <!--components-->
+  <script src="components/App.js"></script>
+  <script src="components/Editor.js"></script>
+  <script src="components/Note.js"></script>
+  <script src="components/NoteList.js"></script>
+  <!--services-->
+  <script src="services/all.js"></script>
+  <script src="services/editorß.js"></script>
 </head>
+
 <body>
-
-  <!-- your html here -->
-
-
-  <!-- 
-    Utilize one of these <script> options, depending on the front-end framework
-    of your choice:
-
-    view the README for an explanation of this setup.
-
-    React:
-    <script src="react/bundle.js"></script>
-
-    Angular:
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
-    <script src="angular/app.js"></script>
-    Be sure to include more script tags for other files you create.
-
-    (Because there is no module loader like webpack being used for the Angular setup,
-    you'll need to script source all files you want index.html to load)
-  -->
+  <App>
 </body>
+
 </html>
