@@ -2,15 +2,15 @@
   <form> 
     <fieldset> 
       <legend>Editor</legend>
-      <label><b>Title:</b><input class="editor-title" type="text" ng-model="ctrl.note.title" /></label> <br>
-      <label><b>Text:</b><textarea class="boxsizing-border" cols="30" rows="5" ng-model="ctrl.note.text"></textarea></label><br>
+      <label><b>Title:</b><input ng-disabled="!ctrl.getState.editing()" class="editor-title" type="text" ng-model="ctrl.note.title" /></label> <br>
+      <label><b>Text:</b><textarea ng-disabled="!ctrl.getState.editing()" class="boxsizing-border" cols="30" rows="5" ng-model="ctrl.note.text"></textarea></label><br>
       <div class="btn-group" rol="group">
-        <button type="button" ng-if="ctrl.browsing" id="edit" ng-click="ctrl.editNote()" class="btn btn-default" value="Edit"/>Edit
-        <button type="button" ng-if="ctrl.creating" id="create" ng-click="ctrl.createNote()" class="btn btn-default" value="Create"/>Create
-        <button type="button" ng-if="ctrl.editing" id="update" ng-click="ctrl.saveNote()" class="btn btn-default" value="Save"/>Save
-        <button type="button" ng-if="ctrl.editing" id="delete" ng-click="ctrl.deleteNote()" class="btn btn-default" value="Delete"/>Delete
-        <button type="button" ng-if="ctrl.editing || ctrl.creating" id="Cancel" ng-click="ctrl.cancelEdit()" class="btn btn-default" value="Cancel"/>Cancel
-        <button type="button" ng-if="ctrl.browsing" id="new" ng-click="ctrl.newNote()" class="btn btn-default" value="New"/>New
+        <button type="button" ng-if="ctrl.getState.browsing()" id="edit" ng-click="ctrl.editNote()" class="btn btn-default" value="Edit"/>Edit
+        <button type="button" ng-if="ctrl.getState.creating()" id="create" ng-click="ctrl.createNote()" class="btn btn-default" value="Create"/>Create
+        <button type="button" ng-if="ctrl.getState.editing()" id="update" ng-click="ctrl.saveNote()" class="btn btn-default" value="Save"/>Save
+        <button type="button" ng-if="ctrl.getState.editing()" id="delete" ng-click="ctrl.deleteNote()" class="btn btn-default" value="Delete"/>Delete
+        <button type="button" ng-if="ctrl.getState.editing() || ctrl.getState.creating()" id="Cancel" ng-click="ctrl.cancelEdit()" class="btn btn-default" value="Cancel"/>Cancel
+        <button type="button" ng-if="ctrl.getState.browsing()" id="new" ng-click="ctrl.newNote()" class="btn btn-default" value="New"/>New
       </div>
     </fieldset> 
   </form>

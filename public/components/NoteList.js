@@ -9,6 +9,7 @@ angular.module('tagger')
     bindToController: true,
     templateUrl: '../templates/noteList.html',
     scope: {
+      setState: '<',
       notes: '<',
       fetch: '<',
       select: '<'

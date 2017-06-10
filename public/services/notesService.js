@@ -1,7 +1,7 @@
 angular.module('tagger')
 
 .service('notesService', [ '$http', function($http) {
-  var notes=[];
+  var notes = [];
   return {
     get: () => notes,
     fetch: () => {

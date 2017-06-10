@@ -11,6 +11,9 @@ angular.module('tagger')
   this.create = editorService.create;
   this.update = editorService.update;
   this.delete = editorService.delete;
+  //state methods
+  this.getState = stateService.get;
+  this.setState = stateService.set;
   //initialize
   (function init() {
     notesService.fetch();
@@ -23,6 +26,9 @@ angular.module('tagger')
     bindToController: true,
     templateUrl: './templates/app.html',
     scope: {},
-    restrict: 'E'
+    restrict: 'E',
+    link(s,e,a,c) {
+      console.log(c);
+    }
   };
 });

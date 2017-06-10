@@ -8,6 +8,7 @@
 
       <div class="side-panel col-xs-5 col-sm-4">
         <note-list
+          setState="ctrl.setState"
           fetch="ctrl.getAll" 
           notes="ctrl.getAll()"
           select="ctrl.set">
@@ -16,6 +17,8 @@
 
       <div class="editor-view col-xs-7 col-sm-8">
         <editor
+          get-state="ctrl.getState"
+          set-state="ctrl.setState"
           note="ctrl.getCurrent()"
           update="ctrl.update"
           new="ctrl.new"

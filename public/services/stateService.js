@@ -2,13 +2,18 @@ angular.module('tagger')
 
 .service('stateService', [function() {
   var state = {
-    browsing: false,
-    creating: true,
+    browsing: true,
+    creating: false,
     editing: false
   };
 
   return {
-    setNew: (newState) => state = Object.assign(newState, state),
+    set: (newState) => {
+      for (key in newState) {
+        state[key] = newState[key];
+      }
+      console.log(state);
+    },
     get: {
       browsing: () => state.browsing,
       creating: () => state.creating,

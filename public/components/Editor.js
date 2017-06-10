@@ -1,56 +1,38 @@
 angular.module('tagger')
 
 .controller('EditorCtrl', [function() {
-  this.editing = false;
-  this.creating = true;
-  this.browsing = false;
 
-  if (this.note.title) {
-    this.addBrowsing();
-  }
+  this.setCreating = () => this.setState({creating: true, browsing: false, editing: false});
 
-  this.addCreating = () => {
-    this.editing = false;
-    this.creating = true;
-    this.browsing = false;
-  };
+  this.setEditing = () => this.setState({creating: false, browsing: false, editing: true});
 
-  this.addEditing = () => {
-    this.editing = true;
-    this.creating = false;
-    this.browsing = false;
-  };
-
-  this.addBrowsing = () => {
-    this.editing = false;
-    this.creating = false;
-    this.browsing = true;
-  };
+  this.setBrowsing = () => this.setState({creating: false, browsing: true, editing: false});
 
   this.saveEdit = () => {
-    this.addBrowsing();
+    this.setEditing();
     this.update(this.note);
   };
 
   this.cancelEdit = () => {
-    this.addBrowsing();
+    this.setBrowsing();
   };
 
   this.deleteNote = () => {
-    this.addBrowsing();
+    this.setBrowsing();
     this.delete(this.note);
   };
 
   this.newNote = () => {
-    this.addEditing();
     this.new();
   };
 
   this.createNote = () => {
-    this.addCreating();
     this.create(this.note);
   };
 
+  this.editNote = () => {
+    this.setEditing();
+  };
 }])
 
 .directive('editor', [function() {
@@ -63,7 +45,9 @@ angular.module('tagger')
       new: '<',
       create: '<',
       update: '<',
-      delete: '<'
+      delete: '<',
+      setState: '<',
+      getState: '<'
     },
     restrict: 'E',
     link(s,e,a,c) {
