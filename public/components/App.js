@@ -1,8 +1,6 @@
 angular.module('tagger')
 
 .controller('AppCtrl', [ 'notesService', 'editorService', function(notesService, editorService) {
-  //initialize
-  this.init();
   // all notes methods
   this.getAll = notesService.get;
   this.fetch = notesService.fetch;
@@ -13,9 +11,10 @@ angular.module('tagger')
   this.create = editorService.create;
   this.update = editorService.update;
   this.delete = editorService.delete;
-  function init() {
-    this.fetch();
-  }
+  //initialize
+  (function init() {
+    notesService.fetch();
+  })();
 }])
 
 .directive('app', function() {
@@ -23,9 +22,7 @@ angular.module('tagger')
     controller: 'AppCtrl as ctrl',
     bindToController: true,
     templateUrl: './templates/app.html',
-    scope: {
-
-    },
+    scope: {},
     restrict: 'E'
   };
 });

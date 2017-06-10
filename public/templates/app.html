@@ -1,27 +1,29 @@
-<div class="app">
+<div class="app container">
+  
+    <div class="row">
+      <h1 class="app-title">Tagger</h1>
+    </div> <!--title row-->
 
-  <h1 class="app-title">Tagger</h1>
+    <div class="row">
 
-  <div class="row">
+      <div class="side-panel col-xs-5 col-sm-4">
+        <note-list
+          fetch="ctrl.getAll" 
+          notes="ctrl.getAll()"
+          select="ctrl.set">
+        </note-list>
+      </div> <!--side panel notes-->
 
-    <div class="side-panel">
-      <note-list
-        fetch="ctrl.getAll" 
-        notes="ctrl.getAll()"
-        select="ctrl.set">
-      </note-list>
-    </div>
+      <div class="editor-view col-xs-7 col-sm-8">
+        <editor
+          note="ctrl.getCurrent()"
+          update="ctrl.update"
+          new="ctrl.new"
+          create="ctrl.create"
+          delete="ctrl.delete">
+        </editor>
+      </div> <!--note editor view-->
 
-    <div class="editor-view">
-      <editor
-        note="ctrl.getCurrent()"
-        update="ctrl.update"
-        new="ctrl.new"
-        create="ctrl.create"
-        delete="ctrl.delete">
-      </editor>
-    </div>
-
-  </div> <!--row-->
+    </div> <!--notes row-->
 
 </div> <!--app-->

@@ -1,7 +1,6 @@
 angular.module('tagger')
 
 .controller('NoteListCtrl', function($scope) {
-    
 })
 
 .directive('noteList', function() {

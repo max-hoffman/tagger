@@ -15,7 +15,10 @@ angular.module('tagger')
     },
     restrict: 'E',
     link(s, e, a, c) {
-      console.log('note controller', c);
+      e.bind('click', function() {
+        angular.element(document.querySelector('.active')).removeClass('active');
+        e.addClass('active');
+      });
     }
   };
 }]);
