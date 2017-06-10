@@ -1,6 +1,6 @@
 angular.module('tagger')
 
-.controller('AppCtrl', [ 'notesService', 'editorService', function(notesService, editorService) {
+.controller('AppCtrl', [ 'notesService', 'editorService', 'stateService', function(notesService, editorService, stateService) {
   // all notes methods
   this.getAll = notesService.get;
   this.fetch = notesService.fetch;

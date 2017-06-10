@@ -3,25 +3,37 @@ angular.module('tagger')
 .controller('EditorCtrl', [function() {
   this.editing = false;
   this.creating = true;
+  this.browsing = false;
+
+  if (this.note.title) {
+    this.addBrowsing();
+  }
 
   this.addCreating = () => {
     this.editing = false;
     this.creating = true;
+    this.browsing = false;
   };
 
   this.addEditing = () => {
     this.editing = true;
     this.creating = false;
+    this.browsing = false;
   };
 
   this.addBrowsing = () => {
     this.editing = false;
     this.creating = false;
+    this.browsing = true;
   };
 
-  this.updateNote = () => {
+  this.saveEdit = () => {
     this.addBrowsing();
     this.update(this.note);
+  };
+
+  this.cancelEdit = () => {
+    this.addBrowsing();
   };
 
   this.deleteNote = () => {

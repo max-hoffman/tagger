@@ -5,11 +5,12 @@
       <label><b>Title:</b><input class="editor-title" type="text" ng-model="ctrl.note.title" /></label> <br>
       <label><b>Text:</b><textarea class="boxsizing-border" cols="30" rows="5" ng-model="ctrl.note.text"></textarea></label><br>
       <div class="btn-group" rol="group">
-        <button type="button" ng-if"ctrl.editing" id="edit" ng-click="ctrl.editNote()" class="btn btn-default" value="Edit"/>Edit
-        <button type="button" ng-if"ctrl.creating" id="create" ng-click="ctrl.createNote()" class="btn btn-default" value="Create"/>Create
-        <button type="button" ng-if"ctrl.editing" id="update" ng-click="ctrl.updateNote()" class="btn btn-default" value="Update"/>Update
-        <button type="button" ng-if"ctrl.editing" id="delete" ng-click="ctrl.deleteNote()" class="btn btn-default" value="Delete"/>Delete
-        <button type="button" ng-if"ctrl.editing" id="new" ng-click="ctrl.newNote()" class="btn btn-default" value="New"/>New
+        <button type="button" ng-if="ctrl.browsing" id="edit" ng-click="ctrl.editNote()" class="btn btn-default" value="Edit"/>Edit
+        <button type="button" ng-if="ctrl.creating" id="create" ng-click="ctrl.createNote()" class="btn btn-default" value="Create"/>Create
+        <button type="button" ng-if="ctrl.editing" id="update" ng-click="ctrl.saveNote()" class="btn btn-default" value="Save"/>Save
+        <button type="button" ng-if="ctrl.editing" id="delete" ng-click="ctrl.deleteNote()" class="btn btn-default" value="Delete"/>Delete
+        <button type="button" ng-if="ctrl.editing || ctrl.creating" id="Cancel" ng-click="ctrl.cancelEdit()" class="btn btn-default" value="Cancel"/>Cancel
+        <button type="button" ng-if="ctrl.browsing" id="new" ng-click="ctrl.newNote()" class="btn btn-default" value="New"/>New
       </div>
     </fieldset> 
   </form>
