@@ -14,6 +14,9 @@ angular.module('tagger')
   //state methods
   this.getState = stateService.get;
   this.setState = stateService.set;
+  //editing methods
+  this.triggerEdit = () => stateService.set({creating: false, browsing: false, editing: true});
+  this.cancelEdit = () => stateService.set({creating: false, browsing: true, editing: false});
   //initialize
   (function init() {
     notesService.fetch();

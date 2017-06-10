@@ -1,6 +1,6 @@
 angular.module('tagger')
 
-.service('editorService', [ '$http', 'stateService', function($http, stateService) {
+.service('editorService', [ '$http', 'stateService', 'notesService', function($http, stateService, notesService) {
   var blank = 
   {
     'id' : '',
@@ -19,13 +19,15 @@ angular.module('tagger')
     new: () => {
       current = blank;
       stateService.set({ creating: true, browsing: false});
+      angular.element(document.querySelector('.active')).removeClass('active');
     },
     create: (note) => {
       //post request
-      // $http.post( '/notes', note)
-      // .then((note) => {
-      //   console.log('posted', note);
-      // })
+      $http.post( '/notes', note)
+      .then((note) => {
+        notesService.fetch();
+        console.log('posted', note);
+      })
       stateService.set({ browsing: true, creating: false });
     },
     update: (note) => {

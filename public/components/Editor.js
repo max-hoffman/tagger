@@ -2,37 +2,15 @@ angular.module('tagger')
 
 .controller('EditorCtrl', [function() {
 
-  this.setCreating = () => this.setState({creating: true, browsing: false, editing: false});
+  this.saveEdit = () => this.update(this.note);
 
-  this.setEditing = () => this.setState({creating: false, browsing: false, editing: true});
+  this.deleteNote = () => this.delete(this.note);
 
-  this.setBrowsing = () => this.setState({creating: false, browsing: true, editing: false});
+  this.createNote = () => this.create(this.note);
 
-  this.saveEdit = () => {
-    this.setEditing();
-    this.update(this.note);
-  };
+  // this.cancelEdit = () => this.setState({creating: false, browsing: true, editing: false});
 
-  this.cancelEdit = () => {
-    this.setBrowsing();
-  };
-
-  this.deleteNote = () => {
-    this.setBrowsing();
-    this.delete(this.note);
-  };
-
-  this.newNote = () => {
-    this.new();
-  };
-
-  this.createNote = () => {
-    this.create(this.note);
-  };
-
-  this.editNote = () => {
-    this.setEditing();
-  };
+  // this.editNote = () => this.setState({creating: false, browsing: false, editing: true});
 }])
 
 .directive('editor', [function() {
@@ -47,7 +25,9 @@ angular.module('tagger')
       update: '<',
       delete: '<',
       setState: '<',
-      getState: '<'
+      getState: '<',
+      cancelEdit: '<',
+      triggerEdit: '<'
     },
     restrict: 'E',
     link(s,e,a,c) {

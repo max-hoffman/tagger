@@ -1,7 +1,6 @@
 angular.module('tagger')
 
 .controller('NoteCtrl', [function() {
-  
 }])
 
 .directive('note', [function() {
