@@ -1,6 +1,8 @@
 angular.module('tagger')
 
 .controller('AppCtrl', [ 'notesService', 'editorService', function(notesService, editorService) {
+  //initialize
+  this.init();
   // all notes methods
   this.getAll = notesService.get;
   this.fetch = notesService.fetch;
@@ -11,6 +13,9 @@ angular.module('tagger')
   this.create = editorService.create;
   this.update = editorService.update;
   this.delete = editorService.delete;
+  function init() {
+    this.fetch();
+  }
 }])
 
 .directive('app', function() {
@@ -21,9 +26,6 @@ angular.module('tagger')
     scope: {
 
     },
-    restrict: 'E',
-    link(s, e, a, c) {
-      c.fetch();
-    }
+    restrict: 'E'
   };
 });

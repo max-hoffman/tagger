@@ -13,6 +13,9 @@ angular.module('tagger')
       note: '<',
       onClick: '&'
     },
-    restrict: 'E'
+    restrict: 'E',
+    link(s, e, a, c) {
+      console.log('note controller', c);
+    }
   };
 }]);

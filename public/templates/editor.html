@@ -2,13 +2,13 @@
   <form> 
     <fieldset> 
       <legend>Note</legend>
-      <input type="submit" ng-if"ctrl.editing" id="edit" ng-click="ctrl.editNote()" value="Edit"/>
-      <input type="submit" ng-if"ctrl.creating" id="create" ng-click="ctrl.createNote()" value="Create"/>
-      <input type="submit" ng-if"ctrl.editing" id="update" ng-click="ctrl.updateNote()" value="Update"/>
-      <input type="submit" ng-if"ctrl.editing" id="delete" ng-click="ctrl.deleteNote()" value="Delete"/>
-      <input type="submit" ng-if"ctrl.editing" id="new" ng-click="ctrl.newNote()" value="New"/>
-      <label><b>Title:</b><input type="text" ng-model="ctrl.note.title" /></label><br/>
-      <label><b>Text:</b><textarea cols="30" rows="5" type="email" ng-model="ctrl.note.text" /></label><br/>
+      <label><b>Title:</b><input type="text" ng-model="ctrl.note.title" /></label> <br>
+      <label><b>Text:</b><textarea class="boxsizing-border" cols="30" rows="5" ng-model="ctrl.note.text"></textarea></label><br>
+      <input type="button" ng-if"ctrl.editing" id="edit" ng-click="ctrl.editNote()" value="Edit"/>
+      <input type="button" ng-if"ctrl.creating" id="create" ng-click="ctrl.createNote()" value="Create"/>
+      <input type="button" ng-if"ctrl.editing" id="update" ng-click="ctrl.updateNote()" value="Update"/>
+      <input type="button" ng-if"ctrl.editing" id="delete" ng-click="ctrl.deleteNote()" value="Delete"/>
+      <input type="button" ng-if"ctrl.editing" id="new" ng-click="ctrl.newNote()" value="New"/>
     </fieldset> 
   </form>
 </div>

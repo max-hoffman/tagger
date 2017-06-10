@@ -1,6 +1,6 @@
 angular.module('tagger')
 
-.service('editorService', [function() {
+.service('editorService', [ '$http', function($http) {
   var blank = 
   {
     'id' : '',
@@ -12,18 +12,14 @@ angular.module('tagger')
 
   return {
     get: () => current,
-    set: (note) => {
-      current.id = note.id,
-      current.title = note.title,
-      current.text = note.text
-    },
-    new: () => {
-      current.id = blank.id,
-      current.title = blank.title,
-      current.text = blank.text
-    },
+    set: (note) => current = note,
+    new: () => current = blank,
     create: (note) => {
       //post request
+      // $http.post( '/notes', note)
+      // .then((note) => {
+      //   console.log('posted', note);
+      // })
       //update note
     },
     update: (note) => {

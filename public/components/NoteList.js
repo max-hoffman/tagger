@@ -1,17 +1,19 @@
 angular.module('tagger')
 
-.controller('NoteListCtrl', [function() {
-}])
+.controller('NoteListCtrl', function($scope) {
+    
+})
 
-.directive('noteList', [function() {
+.directive('noteList', function() {
   return {
     controller: 'NoteListCtrl as ctrl',
     bindToController: true,
     templateUrl: '../templates/noteList.html',
     scope: {
       notes: '<',
+      fetch: '<',
       select: '<'
     },
     restrict: 'E'
   };
-}]);
+});

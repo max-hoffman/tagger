@@ -6,14 +6,11 @@ angular.module('tagger')
     get: () => notes,
     fetch: () => {
       //get request
-      $http({
-        method: 'GET',
-        url: '/notes'
-      })
-      .then((results) => {
-        console.log('get req', results);
-        notes = results;
-      })
+      $http.get('/notes')
+      .then((results) => notes = results.data )
+      .then(() => {
+        console.log(notes); 
+      });
     }
   };
 }]);

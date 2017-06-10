@@ -5,8 +5,9 @@
   <div class="row">
 
     <div class="side-panel">
-      <note-list 
-        notes="ctrl.getAllNotes()"
+      <note-list
+        fetch="ctrl.getAll" 
+        notes="ctrl.getAll()"
         select="ctrl.set">
       </note-list>
     </div>
