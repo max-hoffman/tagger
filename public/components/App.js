@@ -21,6 +21,9 @@ angular.module('tagger')
     scope: {
 
     },
-    restrict: 'E'
+    restrict: 'E',
+    link(s, e, a, c) {
+      c.fetch();
+    }
   };
 });

@@ -8,12 +8,20 @@ angular.module('tagger')
     'text': ''
   };
   
-  var current = blank;
+  var current = {};
 
   return {
     get: () => current,
-    set: (note) => current = note,
-    new: () => current = blank,
+    set: (note) => {
+      current.id = note.id,
+      current.title = note.title,
+      current.text = note.text
+    },
+    new: () => {
+      current.id = blank.id,
+      current.title = blank.title,
+      current.text = blank.text
+    },
     create: (note) => {
       //post request
       //update note
