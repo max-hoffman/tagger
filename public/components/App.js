@@ -2,10 +2,10 @@ angular.module('tagger')
 
 .controller('AppCtrl', [ 'notesService', 'editorService', function(notesService, editorService) {
   // all notes methods
-  this.getAllNotes = notesService.get;
+  this.getAll = notesService.get;
   this.fetch = notesService.fetch;
   //editor methods
-  this.getCurrentNote = editorService.get;
+  this.getCurrent = editorService.get;
   this.set = editorService.set; 
   this.new = editorService.new; 
   this.create = editorService.create;

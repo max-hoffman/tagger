@@ -1,7 +1,7 @@
 angular.module('tagger')
 
 .controller('NoteCtrl', [function() {
-
+  
 }])
 
 .directive('note', [function() {
@@ -10,7 +10,8 @@ angular.module('tagger')
     bindToController: true,
     templateUrl: '../templates/note.html',
     scope: {
-      
+      note: '<',
+      onClick: '&'
     },
     restrict: 'E'
   };

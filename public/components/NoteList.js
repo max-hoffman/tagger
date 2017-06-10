@@ -1,7 +1,6 @@
 angular.module('tagger')
 
 .controller('NoteListCtrl', [function() {
-
 }])
 
 .directive('noteList', [function() {
@@ -10,7 +9,8 @@ angular.module('tagger')
     bindToController: true,
     templateUrl: '../templates/noteList.html',
     scope: {
-      
+      notes: '<',
+      select: '<'
     },
     restrict: 'E'
   };

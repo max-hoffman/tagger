@@ -2,6 +2,10 @@
   <form> 
     <fieldset> 
       <legend>Note</legend>
+      <input type="submit" ng-if"ctrl.editing" id="edit" ng-click="ctrl.edit()" value="Edit"/>
+      <input type="submit" ng-if"ctrl.creating" id="create" ng-click="ctrl.create()" value="Create"/>
+      <input type="submit" ng-if"ctrl.editing" id="update" ng-click="ctrl.update()" value="Update"/>
+      <input type="submit" ng-if"ctrl.editing" id="delete" ng-click="ctrl.delete()" value="Delete"/>
       <label><b>Title:</b><input type="text" ng-model="ctrl.title" /></label><br/>
       <label><b>Text:</b><textarea cols="30" rows="5" type="email" ng-model="ctrl.text" /></label><br/>
     </fieldset> 
