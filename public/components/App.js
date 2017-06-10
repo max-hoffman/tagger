@@ -9,8 +9,13 @@ angular.module('tagger')
   this.set = editorService.set; 
   this.new = editorService.new; 
   this.create = editorService.create;
-  this.update = editorService.update;
-  this.delete = editorService.delete;
+  this.update = (note) => {
+    editorService.update(note);
+  };
+  this.delete = (note) => {
+    editorService.delete(note);
+    editorService.new();
+  };
   //state methods
   this.getState = stateService.get;
   this.setState = stateService.set;

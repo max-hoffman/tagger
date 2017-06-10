@@ -22,22 +22,24 @@ angular.module('tagger')
       angular.element(document.querySelector('.active')).removeClass('active');
     },
     create: (note) => {
-      //post request
       $http.post( '/notes', note)
       .then((note) => {
         notesService.fetch();
-        console.log('posted', note);
       })
       stateService.set({ browsing: true, creating: false });
     },
     update: (note) => {
-      //put request
-      //update note
-      stateService.set({ browsing: true, editing: false });
+      $http.put( `/notes${note.id}`, note)
+      .then((note) => {
+        notesService.fetch();
+      });
+      stateService.set({ browsing: true, editing: false, creating: false });
     },
     delete: (note) => {
-      //put request
-      //set note = blank
+      $http.delete( `/notes${note.id}`)
+      .then((note) => {
+        notesService.fetch();
+      });
       stateService.set({ browsing: true, editing: false });
     }
   };
